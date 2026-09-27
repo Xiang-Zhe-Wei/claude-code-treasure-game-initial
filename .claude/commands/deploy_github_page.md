@@ -59,6 +59,7 @@ allowed-tools: Bash(gh:*), Bash(git:*), Bash(npm:*), Bash(brew:*), Bash(curl:*),
      ```
 
 7. **啟用 GitHub Pages**
+   - 注意：推送 `gh-pages` 分支後，GitHub 通常會自動啟用 Pages，此時 POST 會回 `409 GitHub Pages is already enabled`，屬正常情況，不是錯誤。
    - `gh api repos/OWNER/REPO/pages`：
      - 回傳 404（尚未啟用）→ `gh api -X POST repos/OWNER/REPO/pages -f "source[branch]=gh-pages" -f "source[path]=/"`
      - 已啟用但來源不是 `gh-pages` → `gh api -X PUT repos/OWNER/REPO/pages -f "source[branch]=gh-pages" -f "source[path]=/"`
